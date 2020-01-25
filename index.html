@@ -1,1 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Bootstrap CDN-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDuWT6WU8MJ_hNeSu1PMhr1GuB2GtZgsWg",
+            authDomain: "fir-demo-37ae2.firebaseapp.com",
+            databaseURL: "https://fir-demo-37ae2.firebaseio.com",
+            projectId: "fir-demo-37ae2",
+            storageBucket: "fir-demo-37ae2.appspot.com",
+            messagingSenderId: "881616232140",
+            appId: "1:881616232140:web:5ec25d64ba3b4dd671ac69"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron" id="jumbo" style="box-shadow: 2px 2px 2px 2px gray; background-color:lightgreen">
+
+            <h1 class="display-4 text-center">The Defacto Train Schedule</h1>
+            <p class="lead text-center">Welcome to the ultimate train scheduling tool</p>
+            <hr class="my-4" style="box-shadow: 2px 2px 2px gray;">
+            <div class="text-center">
+                <button class="btn btn-secondary btn-lg" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="box-shadow: 2px 2px 2px gray;">
+                Instructions
+              </button>
+
+            </div>
+            </p>
+            <div class="collapse border-primary" id="collapseExample">
+                <div class="card card-body" id="instructions">
+                    <p>
+                        <ul class="list-group list-unstyled">
+                            <li class="list-group-item">This tool incorporates Firebase to host arrival and departure data. The app will retrieve and manipulate this information with Moment.js. </li>
+                            <li class="list-group-item"> This tool will provide up-to-date information about various trains, namely their arrival times and how many minutes remain until they arrive at their station.</li>
+                            <li class="list-group-item">Add new train data by using the form below.</li>
+
+
+
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <table class="table table-light table-striped " id="trainTable">
+            <thead>
+                <h4>Scheduled Trains</h4>
+                <tr class="bg-secondary text-warning">
+                    <th scope="col">Name</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Frequency (min)</th>
+                    <th scope="col">Next Arrival</th>
+                    <th scope="col">Minutes Away</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+        <div class="container-fluid fields" style="padding:10px">
+            <h3>Add a new train to the schedule:</h3>
+            <form>
+                <div class="form-group">
+                    <label for="UserInputName" id="header">Train Name</label>
+                    <input type="text" class="form-control" id="submitTrainName" placeholder="The Polar Express">
+                </div>
+                <div class="form-group">
+                    <label for="UserInputDest">Desination</label>
+                    <input type="text" class="form-control" id="submitDestination" placeholder="Union Station">
+                </div>
+                <div class="form-group">
+                    <label for="UserInputFirst">First Train (HH:MM 24-hr)</label>
+                    <input type="text" class="form-control" id="submitStartTime" placeholder="07:00">
+                </div>
+                <div class="form-group">
+                    <label for="UserInputFreq">Frequency (min)</label>
+                    <input type="text" class="form-control" id="submitFrequency" placeholder="30">
+                </div>
+                <input class="btn btn-secondary" id="submit-button" type="button" value="Submit">
+            </form>
+        </div>
+
+    </div>
+
+
+
+
+    <script src="assets/javascript/app.js"></script>
+</body>
+
+</html>
