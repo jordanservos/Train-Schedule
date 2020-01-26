@@ -5,44 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Train Scheduler</title>
+
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- Bootstrap CDN-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+    <!-- Firebase Core JavaScript Link -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
 
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <!-- Specific Firebase products we want -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
 
-    <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyDuWT6WU8MJ_hNeSu1PMhr1GuB2GtZgsWg",
-            authDomain: "fir-demo-37ae2.firebaseapp.com",
-            databaseURL: "https://fir-demo-37ae2.firebaseio.com",
-            projectId: "fir-demo-37ae2",
-            storageBucket: "fir-demo-37ae2.appspot.com",
-            messagingSenderId: "881616232140",
-            appId: "1:881616232140:web:5ec25d64ba3b4dd671ac69"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-    </script>
+    <!-- Moment.js -->
+
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+
 </head>
 
 <body>
 
     <div class="container">
-        <div class="jumbotron" id="jumbo" style="box-shadow: 2px 2px 2px 2px gray; background-color:lightgreen">
 
-            <h1 class="display-4 text-center">The Defacto Train Schedule</h1>
+        <!-- Add jumbotron w/ intructions -->
+        <div class="jumbotron" id="jumbo" style="box-shadow: 2px 2px 2px 2px gray; background-color:lightgray">
+
+            <h1 class="display-4 text-center">The Defacto Train Scheduler</h1>
             <p class="lead text-center">Welcome to the ultimate train scheduling tool</p>
             <hr class="my-4" style="box-shadow: 2px 2px 2px gray;">
             <div class="text-center">
@@ -52,13 +46,14 @@
 
             </div>
             </p>
+
             <div class="collapse border-primary" id="collapseExample">
                 <div class="card card-body" id="instructions">
                     <p>
                         <ul class="list-group list-unstyled">
-                            <li class="list-group-item">This tool incorporates Firebase to host arrival and departure data. The app will retrieve and manipulate this information with Moment.js. </li>
-                            <li class="list-group-item"> This tool will provide up-to-date information about various trains, namely their arrival times and how many minutes remain until they arrive at their station.</li>
-                            <li class="list-group-item">Add new train data by using the form below.</li>
+                            <li class="list-group-item">1) This tool incorporates Firebase to host arrival and departure data. The app will retrieve and manipulate this information with Moment.js. </li>
+                            <li class="list-group-item">2) This tool will provide up-to-date information about various trains, namely their arrival times and how many minutes remain until they arrive at their station.</li>
+                            <li class="list-group-item">3) Add new train data by using the form below.</li>
 
 
 
@@ -68,11 +63,13 @@
             </div>
         </div>
 
+        <!-- build schedule table -->
+
 
         <table class="table table-light table-striped " id="trainTable">
             <thead>
-                <h4>Scheduled Trains</h4>
-                <tr class="bg-secondary text-warning">
+                <h3>Upcoming Trains:</h3>
+                <tr class="bg-secondary text-warning text-center">
                     <th scope="col">Name</th>
                     <th scope="col">Destination</th>
                     <th scope="col">Frequency (min)</th>
@@ -84,6 +81,8 @@
 
             </tbody>
         </table>
+
+        <!-- build new train submission form -->
 
         <div class="container-fluid fields" style="padding:10px">
             <h3>Add a new train to the schedule:</h3>
@@ -104,7 +103,7 @@
                     <label for="UserInputFreq">Frequency (min)</label>
                     <input type="text" class="form-control" id="submitFrequency" placeholder="30">
                 </div>
-                <input class="btn btn-secondary" id="submit-button" type="button" value="Submit">
+                <input class="btn btn-secondary" id="submit-btn" type="button" value="Submit">
             </form>
         </div>
 

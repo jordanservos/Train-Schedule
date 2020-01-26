@@ -1,0 +1,52 @@
+    .jumbotron {
+        margin-top: 50px;
+    }
+    
+    h1 {
+        font-weight: bolder !important;
+        color: #ec184d
+    }
+    
+    #instructions {
+        box-shadow: 2px 2px 2px gray;
+    }
+    
+    .table {
+        border: 1px black !important;
+        box-shadow: 2px 2px 2px 2px gray;
+        margin-bottom: 40px;
+    }
+    
+    th {
+        color: #ec184d;
+        font-weight: bolder;
+        font-size: 20px;
+        border: 1px black;
+    }
+    
+    td {
+        text-align: center;
+    }
+    
+    form {
+        padding: 20px;
+        border: 1px solid black;
+        margin-bottom: 50px !important;
+        margin: 2px;
+        box-shadow: 2px 2px 2px 2px gray;
+    }
+    
+    .btn {
+        box-shadow: 2px 2px 2px 2px gray;
+        font-weight: bolder;
+    }
+    
+    table,
+    th,
+    td {
+        border: 1px solid black;
+    }
+    
+    .container-fluid {
+        padding: 0px !important;
+    }
